@@ -39,41 +39,6 @@ UI
     gradle clean test -Ddriver=remote
 
 
-Запуск тестов через джобу в [Jenkins](https://jenkins.autotests.cloud/job/MarketZooTests/build?delay=0sec)
-
-### Параметры используемые при запуске тестов:
-![JENKINS_PARAMS](src/test/resources/img/Jenkins_params.PNG)
-
-### Статистика запусков:
-
-![JENKINS_LAUNCH](src/test/resources/img/JENKINS_LAUNCH.PNG)
-
 ### Отчёт в Allure Report
 ![Allure](src/test/resources/img/allure_report.PNG)
 
-### Интеграция [Allure Test Ops](https://allure.autotests.cloud/project/627/dashboards) с [Jira](https://jira.autotests.cloud/browse/HOMEWORK-250)  :
-
-![JIRA](src/test/resources/img/jira_integration.PNG)
-
-### Хранение тест-кейсов в Allure TestOps
-Дашборд
-
-![Allure](src/test/resources/img/main_dashboard.PNG)
-Дашборд по видам тестов
-
-![Allure](src/test/resources/img/personal_dashboards.PNG)
-Запуски
-
-![Allure](src/test/resources/img/launches.PNG)
-Результат запуска
-
-![Allure](src/test/resources/img/launch_results.PNG)
-Тест-кейсы
-
-![Allure](src/test/resources/img/tests.PNG)
-
-### Видео о прохождении тестов
-![Selenoid](src/test/resources/img/381ea424ae9fd94501a1efc8ceff696b(1).gif)
-
-### Уведомления о завершении прогона автотестов в Telegram
-![Telegram](src/test/resources/img/tgbot.PNG)
