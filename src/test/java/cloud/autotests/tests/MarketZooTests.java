@@ -44,7 +44,7 @@ public class MarketZooTests extends TestBase {
 			$("#glpricefrom").val("50");
 			$("#glpriceto").val("150");
 			$(byText("С учётом доставки курьером")).click();
-			$(byText("Molina")).click(); //при анонимном входе корм вискас недоступен для выбора
+			$(byText("Molina")).click(); //после установки фильтров Whiskas становится недоступен для выбора
 			$(byPartialLinkText("Лакомство для кошек Molina")).click();
 		});
 
@@ -87,7 +87,7 @@ public class MarketZooTests extends TestBase {
 			int price2asvar = Integer.parseInt(cleanprice2);
 			int sum = price1asvar + price2asvar;
 			int compare = 300;
-			assertTrue(sum<compare);
+			assertTrue(sum < compare);
 		});
 
 		step("Удалить товар производителя «Whiskas» из сравнения и проверить, что товар производителя " +
