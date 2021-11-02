@@ -1,44 +1,86 @@
-# Project in Allure TestOps with manual & automated tests
-<a target="_blank" href="https://allure.autotests.cloud/project/%s">allure.autotests.cloud/project/%s</a> (ask admin@qa.guru for access)
 
-# Jenkins job
-<a target="_blank" href="https://jenkins.autotests.cloud/job/%s">jenkins.autotests.cloud/job/%s</a>
+## qa_guru_at_final_project
 
+![Intelij_IDEA](src/test/resources/img/icons/Intelij_IDEA.png)![Java](src/test/resources/img/icons/Java.png)![Selenide](src/test/resources/img/icons/Selenide.png)![Selenoid](src/test/resources/img/icons/Selenoid.png)![Gradle](src/test/resources/img/icons/Gradle.png)![JUnit5](src/test/resources/img/icons/JUnit5.png)![Allure Report](src/test/resources/img/icons/Allure_Report.png)![AllureTestOps](src/test/resources/img/icons/AllureTestOps.png)![Github](src/test/resources/img/icons/Github.png)![Jenkins](src/test/resources/img/icons/Jenkins.png)![Rest-Assured](src/test/resources/img/icons/Rest-Assured.png)![Telegram](src/test/resources/img/icons/Telegram.png)![Jira](src/test/resources/img/icons/Jira.png)
 
-# USAGE examples
+Реализованы проверки:
 
-### For run remote tests need fill remote.properties or to pass value:
+## UI Автотесты на https://vprok.ru/
 
-* browser (default chrome)
-* browserVersion (default 89.0)
-* browserSize (default 1920x1080)
-* browserMobileView (mobile device name, for example iPhone X)
-* remoteDriverUrl (url address from selenoid or grid)
-* videoStorage (url address where you should get video)
-* threads (number of threads)
+UI
 
-
-Run tests with filled remote.properties:
-```bash
-gradle clean test
-```
-
-Run tests with not filled remote.properties:
-```bash
-gradle clean -DremoteDriverUrl=https://%s:%s@selenoid.autotests.cloud/wd/hub/ -DvideoStorage=https://selenoid.autotests.cloud/video/ -Dthreads=1 test
-```
-
-Serve report:
-```bash
-allure serve build/allure-results
-```
+    Отображение 'Товар недели' на главной странице
+    Отображение 'Суперцены недели' на главной странице
+    Проверка ссылки 'Упаковкой дешевле'
+    Проверка что в заголовках блока зоотовары есть подзаголовок 'лакомства для кошек'
+    Проверка подзаголовка в категории 'Зоотовары'
+    Проверка поиска по продукту 'молоко'
+    Проверка отправки смс кода при регистрации нового клиента
+    Проверка фильтрации в категории  'Чай, кофе, сахар'
+    Положить товар в козину
 
 
-###### For further development there are some example tests in src/test/java/cloud.autotests/tests/demowebshop
-* remove @Disabled("...") annotation to run tests
-```bash
-gradle clean demowebshop
-```
 
-:heart: <a target="_blank" href="https://qa.guru">qa.guru</a><br/>
-:blue_heart: <a target="_blank" href="https://t.me/qa_automation">t.me/qa_automation</a>
+## API  Автотесты на https://reqres.in/
+
+API
+
+    "Создание нового пользователя"
+    "Запрос пользовательских данных"
+    "Проверка ответа в блоке support.Url"
+    "Неуспешное создание нового пользователя(негативный)"
+    "Успешное создание нового пользователя(негативный)"
+
+### Запуск тестов
+
+Локальный запуск:
+
+    gradle clean test
+
+Локальный запуск с количественным параметром запускаемых потоков:
+
+    gradle clean test -Dthreads=5
+
+Удаленный запуск тестов:
+
+    gradle clean test -Ddriver=remote
+
+
+Запуск тестов через джобу в [Jenkins](https://jenkins.autotests.cloud/job/24_subu_vprok/build?delay=0sec)
+
+### Параметры используемые при запуске тестов:
+![JENKINS_PARAMS](src/test/resources/img/Jenkins_params.PNG)
+
+### Статистика запусков:
+
+![JENKINS_LAUNCH](src/test/resources/img/JENKINS_LAUNCH.PNG)
+
+### Отчёт в Allure Report
+![Allure](src/test/resources/img/allure_report.PNG)
+
+### Интеграция [Allure Test Ops](https://allure.autotests.cloud/project/627/dashboards) с [Jira](https://jira.autotests.cloud/browse/HOMEWORK-250)  :
+
+![JIRA](src/test/resources/img/jira_integration.PNG)
+
+### Хранение тест-кейсов в Allure TestOps
+Дашборд
+
+![Allure](src/test/resources/img/main_dashboard.PNG)
+Дашборд по видам тестов
+
+![Allure](src/test/resources/img/personal_dashboards.PNG)
+Запуски
+
+![Allure](src/test/resources/img/launches.PNG)
+Результат запуска
+
+![Allure](src/test/resources/img/launch_results.PNG)
+Тест-кейсы
+
+![Allure](src/test/resources/img/tests.PNG)
+
+### Видео о прохождении тестов
+![Selenoid](src/test/resources/img/381ea424ae9fd94501a1efc8ceff696b(1).gif)
+
+### Уведомления о завершении прогона автотестов в Telegram
+![Telegram](src/test/resources/img/tgbot.PNG)
