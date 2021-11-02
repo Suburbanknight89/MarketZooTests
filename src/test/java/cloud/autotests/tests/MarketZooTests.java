@@ -14,6 +14,7 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MarketZooTests extends TestBase {
 
@@ -26,7 +27,7 @@ public class MarketZooTests extends TestBase {
 	@Owner("ZaytsevE")
 	@JiraIssues({ @JiraIssue("HOMEWORK-300") })
 	void putAndDeleteCatFeedTest() {
-		step("open https://market.yandex.ru/", () -> {
+		step("открыть https://market.yandex.ru/", () -> {
 			open("https://market.yandex.ru/");
 		});
 
@@ -78,16 +79,15 @@ public class MarketZooTests extends TestBase {
 		step("Проверить, что сумма стоимостей товаров не превышает 300 руб", () -> {
 			String price1 =
 					$(byXpath("/html/body/div[1]/div[5]/div[2]/div/div[4]/div/div[1]/div/span")).text();
-			//получили строку с ценой товара 1
-			String x1 = price1.replaceAll("[^0-9]", ""); //оставили в цене только цифры
+			String cleanprice1 = price1.replaceAll("[^0-9]", "");
 			String price2 =
 					$(byXpath("/html/body/div[1]/div[5]/div[2]/div/div[4]/div/div[2]/div/span")).text();
-			//получили строку с ценой товара 1
-			String x2 = price2.replaceAll("[^0-9]", ""); //оставили в цене только цифры
-			int x3 = Integer.parseInt(x1); //перевели числа текстовом формате в int
-			int x4 = Integer.parseInt(x2); //перевели числа текстовом формате в int
-			int y = x3 + x4;
-			System.out.println(y < 300);
+			String cleanprice2 = price2.replaceAll("[^0-9]", "");
+			int price1asvar = Integer.parseInt(cleanprice1);
+			int price2asvar = Integer.parseInt(cleanprice2);
+			int sum = price1asvar + price2asvar;
+			int compare = 300;
+			assertTrue(sum<compare);
 		});
 
 		step("Удалить товар производителя «Whiskas» из сравнения и проверить, что товар производителя " +
