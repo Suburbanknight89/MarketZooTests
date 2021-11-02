@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class MarketZooTests extends TestBase {
 
 	@Test
-	@DisplayName("Положить 2 кошачих лакомства в корзину, свравнить по параметрам и удалить из списка " +
+	@DisplayName("Положить 2 кошачих лакомства в корзину, сравнить по параметрам, затем удалить из списка " +
 			"сравнения")
 	@Layer("web")
 	@Story("market.yandex.ru tests")
